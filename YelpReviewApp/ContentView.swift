@@ -10,9 +10,36 @@ import SwiftUI
 struct ContentView: View {
     @State var keyword: String = ""
     @State var distance: String = "10"
-    @State var categories: String = "all"
+    @State var pickerIndex: Int = 1
     @State var location: String = ""
     @State var checked: Bool = false
+    
+    var categories: String {
+        switch pickerIndex{
+            case 1:
+                return "all"
+            case 2:
+                return "arts"
+            case 3:
+                return "health"
+            case 4:
+                return "hotelstravel"
+            case 5:
+                return "food"
+            case 6:
+                return "professional"
+            default:
+                return "all"
+        }
+    }
+    // Form validation
+    var formIsValid: Bool {
+        return !keyword.isEmpty && !distance.isEmpty && (!location.isEmpty || checked)
+    }
+    var buttonColor: Color {
+        return formIsValid ? .red : .gray
+    }
+    
     var body: some View {
         NavigationView{
             // search setion
@@ -23,11 +50,13 @@ struct ContentView: View {
                             Text("Keyword:")
                             TextField("Required", text: $keyword)
                         }
+                        
                         HStack {
                             Text("Distance:")
                             TextField("", text: $distance)
                         }
-                        Picker(selection: $categories, label: Text("Category:")) {
+                        
+                        Picker(selection: $pickerIndex, label: Text("Category:")) {
                             Text("Default").tag(1)
                             Text("Arts and Entertainment").tag(2)
                             Text("Health and Medical").tag(3)
@@ -35,14 +64,20 @@ struct ContentView: View {
                             Text("Food").tag(5)
                             Text("Professional Services").tag(6)
                         }
-                        HStack {
-                            Text("Location:")
-                            TextField("", text: $location)
+                        
+                        if !checked { // if auto-detect, hide location
+                            HStack {
+                                Text("Location:")
+                                TextField("", text: $location)
+                            }
                         }
+                        
                         Toggle(isOn: $checked) {
                             Text("Auto-detect my location")
                         }
+                        
                         HStack(spacing: 30) {
+                            // Submit button
                             Button(action: {
                                 
                             }) {
@@ -52,12 +87,17 @@ struct ContentView: View {
                             .foregroundColor(Color.white)
                             .buttonStyle(.bordered)
                             // todo: color change
-                            .background(Color.red)
+                            .background(buttonColor)
                             .controlSize(.large)
                             .cornerRadius(10)
+                            .disabled(!formIsValid)
                             
+                            // Clear button
                             Button(action: {
-                                
+                                keyword = ""
+                                distance = "10"
+                                pickerIndex = 1
+                                location = ""
                             }) {
                                 Text("Clear")
                                     .frame(width: 70 , height: 20, alignment: .center)
@@ -82,14 +122,11 @@ struct ContentView: View {
             }
             
             // search results section
-            VStack {
-                List {
-                    
-                }
-            }
+            ListView()
         } // Nav
     } // body
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
