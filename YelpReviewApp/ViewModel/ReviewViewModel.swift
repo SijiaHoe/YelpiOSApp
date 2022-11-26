@@ -12,4 +12,8 @@ class ReviewViewModel: ObservableObject {
     @Published var rating: String = ""
     @Published var review: String = ""
     @Published var date: String = ""
+    
+    func getReview() {
+        
+    }
 }

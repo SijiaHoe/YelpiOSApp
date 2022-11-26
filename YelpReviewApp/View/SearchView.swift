@@ -10,25 +10,6 @@ import SwiftUI
 struct SearchView: View {
     @ObservedObject var searchVM = SearchViewModel()
     
-//    var categories: String {
-//        switch pickerIndex{
-//            case 1:
-//                return "all"
-//            case 2:
-//                return "arts"
-//            case 3:
-//                return "health"
-//            case 4:
-//                return "hotelstravel"
-//            case 5:
-//                return "food"
-//            case 6:
-//                return "professional"
-//            default:
-//                return "all"
-//        }
-//    }
-    
     let categories = ["Default", "Arts and Entertainment", "Health and Medical", "Hotels and Travel", "Food", "Professional Services"]
     // Form validation
     var formIsValid: Bool {
@@ -72,7 +53,7 @@ struct SearchView: View {
                 HStack(spacing: 30) {
                     // Submit button
                     Button(action: {
-                        
+                        searchVM.submit()
                     }) {
                         Text("Submit")
                             .frame(width: 70 , height: 20, alignment: .center)
