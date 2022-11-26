@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ResultsView: View {
+    @ObservedObject var BusinessVM = BusinessViewModel()
+    
     var body: some View {
         NavigationView {
             Text("s")

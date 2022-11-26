@@ -8,22 +8,26 @@
 import SwiftUI
 
 struct DetailView: View {
+    @State private var showSheet: Bool = false
+    @ObservedObject var detailVM = DetailViewModel()
+    
     var body: some View {
         VStack(spacing: 50) {
             HStack{
-                Text("**Title**")
+                Text("Title")
                     .font(.largeTitle)
+                    .bold()
             }
             HStack {
                 VStack {
                     Text("**Address**")
-                    Text("R 1, C 2")
+                    Text(detailVM.address)
                         .foregroundColor(.gray)
                 }
                 Spacer()
                 VStack {
                     Text("**Category**")
-                    Text("Row 2")
+                    Text(detailVM.category)
                         .foregroundColor(.gray)
                 }
             }
@@ -31,13 +35,13 @@ struct DetailView: View {
             HStack {
                 VStack {
                     Text("**Phone**")
-                    Text("R 1, C 2")
+                    Text(detailVM.phone)
                         .foregroundColor(.gray)
                 }
                 Spacer()
                 VStack {
                     Text("**Price Range**")
-                    Text("Row 2")
+                    Text(detailVM.price)
                         .foregroundColor(.gray)
                 }
             }
@@ -45,13 +49,13 @@ struct DetailView: View {
             HStack {
                 VStack {
                     Text("**Status**")
-                    Text("ed")
+                    Text(detailVM.status)
                 }
                 // status color change
                 Spacer()
                 VStack {
                     Text("**Visit Yelp for more**")
-                    Text("dsf")
+                    Text(detailVM.link)
                         .foregroundColor(.blue)
                 }
             }
@@ -59,7 +63,7 @@ struct DetailView: View {
             // Reserve button
             HStack {
                 Button(action:{
-                    
+                    showSheet = true
                 }){
                     Text("Reserve Now")
                         .frame(width: 100 , height: 20, alignment: .center)
@@ -68,26 +72,36 @@ struct DetailView: View {
                     .background(Color.red)
                     .controlSize(.large)
                     .cornerRadius(15)
+                    .sheet(isPresented: $showSheet, content: {
+                        ReservationsView()
+                    })
             }
             
             // Social Media
             HStack {
                 Text("**Share on:**")
-                Button(action: {
-                    
-                }) {
-                    Image("facebook")
-                        .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                        .resizable()
-                        .frame(width: 50.0, height: 50.0)
+                // facebook
+                Link(destination: URL(string: "https://www.facebook.com/sharer/sharer.php?u=\(detailVM.link)&quote=Check \(detailVM.bName) on Facebook.")!){
+                    Button(action: {
+                        
+                    }) {
+                        Image("facebook")
+                            .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                            .resizable()
+                            .frame(width: 50.0, height: 50.0)
+                    }
                 }
-                Button(action: {
-                    
-                }) {
-                    Image("twitter")
-                        .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                        .resizable()
-                        .frame(width: 50.0, height: 50.0)
+                
+                // twitter
+                Link(destination: URL(string: "https://twitter.com/intent/tweet?text=Check \(detailVM.bName) on Yelp.&url=\(detailVM.link)")!){
+                    Button(action: {
+                        
+                    }) {
+                        Image("twitter")
+                            .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                            .resizable()
+                            .frame(width: 50.0, height: 50.0)
+                    }
                 }
             }
             

@@ -9,7 +9,42 @@ import SwiftUI
 
 struct CommentView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Section {
+            VStack{
+                VStack {
+                    HStack {
+                        Text("name")
+                        Spacer()
+                        Text("rating")
+                    }
+                    Text("review")
+                        .foregroundColor(.gray)
+                    Text("time")
+                }
+                
+                VStack {
+                    HStack {
+                        Text("name")
+                        Spacer()
+                        Text("rating")
+                    }
+                    Text("review")
+                        .foregroundColor(.gray)
+                    Text("time")
+                }
+                
+                VStack {
+                    HStack {
+                        Text("name")
+                        Spacer()
+                        Text("rating")
+                    }
+                    Text("review")
+                        .foregroundColor(.gray)
+                    Text("time")
+                }
+            }
+        }
     }
 }
 

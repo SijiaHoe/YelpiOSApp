@@ -13,11 +13,14 @@
 		4D05086A29241A760016BE37 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D05086929241A760016BE37 /* Preview Assets.xcassets */; };
 		4D050872292C33B10016BE37 /* ReservationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D050871292C33B00016BE37 /* ReservationsView.swift */; };
 		4D3C84FB29315BF000477ECA /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C84FA29315BF000477ECA /* SearchView.swift */; };
-		4D3C84FF29315DF400477ECA /* Businesses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C84FE29315DF400477ECA /* Businesses.swift */; };
+		4D3C84FF29315DF400477ECA /* BusinessesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C84FE29315DF400477ECA /* BusinessesViewModel.swift */; };
 		4D3C85032931611500477ECA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85022931611500477ECA /* DetailView.swift */; };
 		4D3C8505293175D100477ECA /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C8504293175D100477ECA /* ResultsView.swift */; };
 		4D3C85072931766A00477ECA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85062931766A00477ECA /* MapView.swift */; };
 		4D3C85092931767200477ECA /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85082931767200477ECA /* CommentView.swift */; };
+		4D3C850B293195CA00477ECA /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C850A293195CA00477ECA /* SearchViewModel.swift */; };
+		4D3C850D293195D900477ECA /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C850C293195D900477ECA /* ReviewViewModel.swift */; };
+		4D3C850F2931962800477ECA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C850E2931962800477ECA /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +32,14 @@
 		4D05087029246C780016BE37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4D050871292C33B00016BE37 /* ReservationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsView.swift; sourceTree = "<group>"; };
 		4D3C84FA29315BF000477ECA /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		4D3C84FE29315DF400477ECA /* Businesses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Businesses.swift; sourceTree = "<group>"; };
+		4D3C84FE29315DF400477ECA /* BusinessesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesViewModel.swift; sourceTree = "<group>"; };
 		4D3C85022931611500477ECA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		4D3C8504293175D100477ECA /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		4D3C85062931766A00477ECA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4D3C85082931767200477ECA /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		4D3C850A293195CA00477ECA /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		4D3C850C293195D900477ECA /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		4D3C850E2931962800477ECA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +74,7 @@
 			children = (
 				4D05087029246C780016BE37 /* Info.plist */,
 				4D05086229241A730016BE37 /* YelpReviewAppApp.swift */,
-				4D05086429241A740016BE37 /* ContentView.swift */,
-				4D3C84FD29315DB800477ECA /* Model */,
+				4D3C84FD29315DB800477ECA /* ViewModel */,
 				4D3C84FC29315D8800477ECA /* View */,
 				4D05086629241A760016BE37 /* Assets.xcassets */,
 				4D05086829241A760016BE37 /* Preview Content */,
@@ -88,22 +93,26 @@
 		4D3C84FC29315D8800477ECA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4D050871292C33B00016BE37 /* ReservationsView.swift */,
+				4D05086429241A740016BE37 /* ContentView.swift */,
 				4D3C84FA29315BF000477ECA /* SearchView.swift */,
+				4D3C8504293175D100477ECA /* ResultsView.swift */,
 				4D3C85022931611500477ECA /* DetailView.swift */,
+				4D050871292C33B00016BE37 /* ReservationsView.swift */,
 				4D3C85062931766A00477ECA /* MapView.swift */,
 				4D3C85082931767200477ECA /* CommentView.swift */,
-				4D3C8504293175D100477ECA /* ResultsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		4D3C84FD29315DB800477ECA /* Model */ = {
+		4D3C84FD29315DB800477ECA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				4D3C84FE29315DF400477ECA /* Businesses.swift */,
+				4D3C850A293195CA00477ECA /* SearchViewModel.swift */,
+				4D3C84FE29315DF400477ECA /* BusinessesViewModel.swift */,
+				4D3C850E2931962800477ECA /* DetailViewModel.swift */,
+				4D3C850C293195D900477ECA /* ReviewViewModel.swift */,
 			);
-			path = Model;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,13 +185,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3C850F2931962800477ECA /* DetailViewModel.swift in Sources */,
 				4D3C85092931767200477ECA /* CommentView.swift in Sources */,
-				4D3C84FF29315DF400477ECA /* Businesses.swift in Sources */,
+				4D3C84FF29315DF400477ECA /* BusinessesViewModel.swift in Sources */,
 				4D3C85072931766A00477ECA /* MapView.swift in Sources */,
+				4D3C850B293195CA00477ECA /* SearchViewModel.swift in Sources */,
 				4D3C84FB29315BF000477ECA /* SearchView.swift in Sources */,
 				4D3C85032931611500477ECA /* DetailView.swift in Sources */,
 				4D050872292C33B10016BE37 /* ReservationsView.swift in Sources */,
 				4D3C8505293175D100477ECA /* ResultsView.swift in Sources */,
+				4D3C850D293195D900477ECA /* ReviewViewModel.swift in Sources */,
 				4D05086529241A740016BE37 /* ContentView.swift in Sources */,
 				4D05086329241A730016BE37 /* YelpReviewAppApp.swift in Sources */,
 			);
