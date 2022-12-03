@@ -8,7 +8,7 @@
 import Foundation
 
 class BusinessViewModel: ObservableObject {
-    @Published var id: String = ""
+    var id: String = ""
     @Published var photo: String = ""
     @Published var bName: String = ""
     @Published var rate: String = ""

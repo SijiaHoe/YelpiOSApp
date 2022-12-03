@@ -17,7 +17,7 @@ class ReviewViewModel: ObservableObject {
     // TODO: get id from nav bar
     var id = ""
     
-    func getReview() {
+    func getReviews() {
         let url = URL(string: "https://csci571hw8-367920.uw.r.appspot.com/reviews?id=\(id)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
