@@ -19,13 +19,12 @@ class SearchViewModel: ObservableObject {
     var longitude = ""
     
     func submit() {
-//        if self.checked {
-//            self.getCurrentLocation()
-//        }
-//        else {
-//            self.getGeoLocation()
-//        }
-        self.autoComplete()
+        if self.checked {
+            self.getCurrentLocation()
+        }
+        else {
+            self.getGeoLocation()
+        }
     }
     
     func getCurrentLocation() {
