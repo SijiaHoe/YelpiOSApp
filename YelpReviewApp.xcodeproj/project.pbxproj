@@ -21,6 +21,7 @@
 		4D3C850B293195CA00477ECA /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C850A293195CA00477ECA /* SearchViewModel.swift */; };
 		4D3C850D293195D900477ECA /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C850C293195D900477ECA /* ReviewViewModel.swift */; };
 		4D3C850F2931962800477ECA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C850E2931962800477ECA /* DetailViewModel.swift */; };
+		4D3C8512293BFD7D00477ECA /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4D3C8511293BFD7D00477ECA /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3C8512293BFD7D00477ECA /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +133,9 @@
 			dependencies = (
 			);
 			name = YelpReviewApp;
+			packageProductDependencies = (
+				4D3C8511293BFD7D00477ECA /* SwiftyJSON */,
+			);
 			productName = YelpReviewApp;
 			productReference = 4D05085F29241A730016BE37 /* YelpReviewApp.app */;
 			productType = "com.apple.product-type.application";
@@ -159,6 +164,9 @@
 				Base,
 			);
 			mainGroup = 4D05085629241A730016BE37;
+			packageReferences = (
+				4D3C8510293BFD7C00477ECA /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 4D05086029241A730016BE37 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -397,6 +405,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4D3C8510293BFD7C00477ECA /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D3C8511293BFD7D00477ECA /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D3C8510293BFD7C00477ECA /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D05085729241A730016BE37 /* Project object */;
 }
