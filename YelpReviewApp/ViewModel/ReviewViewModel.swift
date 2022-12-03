@@ -14,8 +14,11 @@ class ReviewViewModel: ObservableObject {
     @Published var review: String = ""
     @Published var date: String = ""
     
+    // TODO: get id from nav bar
+    var id = ""
+    
     func getReview() {
-        let url = URL(string: "https://csci571hw8-367920.uw.r.appspot.com/reviews?id=")!
+        let url = URL(string: "https://csci571hw8-367920.uw.r.appspot.com/reviews?id=\(id)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
@@ -30,10 +33,7 @@ class ReviewViewModel: ObservableObject {
             if let data = data {
                 do {
                     let dataString = try JSON(data: data)
-                    let array = dataString["loc"].stringValue.components(separatedBy: ",")
-                    self.latitude = array[0]
-                    self.longitude = array[1]
-                    self.getYelpSearch()
+                    print(dataString)
                 }
                 catch {
                     print("error")

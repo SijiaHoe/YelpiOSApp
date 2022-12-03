@@ -15,4 +15,6 @@ class DetailViewModel: ObservableObject {
     @Published var price: String = ""
     @Published var status: String = ""
     @Published var link: String = ""
+    
+    
 }

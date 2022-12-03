@@ -107,12 +107,9 @@ class SearchViewModel: ObservableObject {
                     return "all"
             }
         }
-        print(categories)
-        print(self.latitude)
         let url = URL(string: "https://csci571hw8-367920.uw.r.appspot.com/list?term=\(self.keyword)&radius=\(radius)&categories=\(categories)&latitude=\(self.latitude)&longitude=\(self.longitude)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        print(url)
         
         let task = URLSession.shared.dataTask(with: request) { [self] (data, response, error) in
             // Check if Error took place
@@ -125,7 +122,7 @@ class SearchViewModel: ObservableObject {
             if let data = data {
                 do {
                     let searchResult = try JSON(data: data)
-                    
+                    print(searchResult)
                 }
                 catch {
                     print("error")

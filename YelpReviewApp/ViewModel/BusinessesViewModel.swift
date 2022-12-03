@@ -13,4 +13,6 @@ class BusinessViewModel: ObservableObject {
     @Published var bName: String = ""
     @Published var rate: String = ""
     @Published var distance: String = ""
+    
+    
 }
