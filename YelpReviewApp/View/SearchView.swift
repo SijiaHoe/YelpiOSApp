@@ -82,6 +82,7 @@ struct SearchView: View {
                     searchVM.distance = "10"
                     searchVM.category = "Default"
                     searchVM.location = ""
+                    searchVM.checked = false
                 }) {
                     Text("Clear")
                         .frame(width: 70 , height: 20, alignment: .center)
