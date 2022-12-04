@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailView: View {
     @State private var showSheet: Bool = false
     @State private var status: Bool = true
-    @State private var isReserved: Bool = false
+    @State private var isReserved: Bool = true
     
     var body: some View {
         VStack(spacing: 50) {

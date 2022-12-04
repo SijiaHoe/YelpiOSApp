@@ -34,6 +34,7 @@ struct ReservationsView: View {
                     Text("Email:")
                         .foregroundColor(.black)
                     TextField("Required", text: $email)
+                        .foregroundColor(.black)
                 }
                 
                 HStack {
