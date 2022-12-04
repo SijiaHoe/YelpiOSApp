@@ -10,6 +10,7 @@ import SwiftUI
 struct ReservationsView: View {
     @State var email: String = ""
     @State var date: Date = Date()
+    @State var isInvalidEmail: Bool = false
     
     var body: some View {
         Form {
@@ -43,6 +44,7 @@ struct ReservationsView: View {
                     DatePicker("", selection: $date, displayedComponents: .date)
                 }
                 
+                // Submit button
                 HStack {
                     Button(action: {
                         
@@ -58,6 +60,10 @@ struct ReservationsView: View {
                     .cornerRadius(10)
                 }.frame(maxWidth: .infinity, alignment: .center)
             }
+        }
+        // add message to show email is not valid
+        .toast(isPresented: self.$isInvalidEmail) {
+            Text("Please enter a valid email.")
         }
     }
 }
