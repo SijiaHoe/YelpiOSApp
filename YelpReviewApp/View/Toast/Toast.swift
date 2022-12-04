@@ -25,15 +25,19 @@ struct Toast<Presenting, Content>: View where Presenting: View, Content: View {
         return GeometryReader { geometry in
             ZStack(alignment: .bottom) {
                 self.presenter()
+                    .blur(radius: self.isPresented ? 1 : 0)
                 
-                ZStack {
-                    Capsule()
-                        .fill(Color.gray)
-                    
+                VStack {
                     self.content()
                 }
-                .frame(width: geometry.size.width / 1.25, height: geometry.size.height / 10)
+                .frame(width: geometry.size.width / 1.25,
+                       height: geometry.size.height / 10)
+                .background(Color.secondary.colorInvert())
+                .foregroundColor(Color.primary)
+                .cornerRadius(20)
+                .transition(.slide)
                 .opacity(self.isPresented ? 1 : 0)
+
             }
             .padding(.bottom)
         } //GeometryReader
