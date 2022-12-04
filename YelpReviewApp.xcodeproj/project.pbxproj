@@ -27,6 +27,7 @@
 		4DB18A76293C48E400BE9DFB /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A75293C48E400BE9DFB /* ContentViewController.swift */; };
 		4DB18A78293C48FB00BE9DFB /* AlwaysPopoverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A77293C48FB00BE9DFB /* AlwaysPopoverModifier.swift */; };
 		4DB18A7A293C49A300BE9DFB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A79293C49A300BE9DFB /* UIView+Extension.swift */; };
+		4DB18A7C293C5FC600BE9DFB /* MapPinPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A7B293C5FC600BE9DFB /* MapPinPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		4DB18A75293C48E400BE9DFB /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		4DB18A77293C48FB00BE9DFB /* AlwaysPopoverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysPopoverModifier.swift; sourceTree = "<group>"; };
 		4DB18A79293C49A300BE9DFB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		4DB18A7B293C5FC600BE9DFB /* MapPinPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				4D3C84FE29315DF400477ECA /* BusinessesViewModel.swift */,
 				4D3C850E2931962800477ECA /* DetailViewModel.swift */,
 				4D3C850C293195D900477ECA /* ReviewViewModel.swift */,
+				4DB18A7B293C5FC600BE9DFB /* MapPinPoint.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				4D3C84FB29315BF000477ECA /* SearchView.swift in Sources */,
 				4DB18A74293C48CC00BE9DFB /* View+Modifiers.swift in Sources */,
 				4D3C85032931611500477ECA /* DetailView.swift in Sources */,
+				4DB18A7C293C5FC600BE9DFB /* MapPinPoint.swift in Sources */,
 				4D050872292C33B10016BE37 /* ReservationsView.swift in Sources */,
 				4DB18A76293C48E400BE9DFB /* ContentViewController.swift in Sources */,
 				4D3C8505293175D100477ECA /* ResultsView.swift in Sources */,

@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
     @ObservedObject var searchVM = SearchViewModel()
     @State var showsAlwaysPopover: Bool = false
+    @State var autoItems: [String] = []
     
     let categories = ["Default", "Arts and Entertainment", "Health and Medical", "Hotels and Travel", "Food", "Professional Services"]
     // Form validation
@@ -28,6 +29,8 @@ struct SearchView: View {
                 TextField("Required", text: $searchVM.keyword)
                     .onSubmit {
                         showsAlwaysPopover = true
+                        self.autoItems = searchVM.autoComplete()
+                        print(autoItems)
                     }
                     .alwaysPopover(isPresented: $showsAlwaysPopover){
                         PopoverContent()
@@ -95,6 +98,7 @@ struct SearchView: View {
 
 struct PopoverContent: View {
     var body: some View {
+        ProgressView("Loading...")
         Text("This should be presented\nin a popover.")
             .font(.subheadline)
             .padding()

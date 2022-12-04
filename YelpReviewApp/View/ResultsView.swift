@@ -16,6 +16,9 @@ struct ResultsView: View {
                 .font(.title)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
+            
+            ProgressView("Please wait...")
+            
             List {
                 NavigationLink(destination: DetailView()) {
                     Text("1")

@@ -87,6 +87,7 @@ class SearchViewModel: ObservableObject {
         task.resume()
     }
     
+    // call backend to get Yelp Search Result
     func getYelpSearch() {
         let radius = String(Int(self.distance)! * 1600)
         var categories: String {
@@ -111,7 +112,7 @@ class SearchViewModel: ObservableObject {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
-        let task = URLSession.shared.dataTask(with: request) { [self] (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             // Check if Error took place
             if let error = error {
                 print("Error took place \(error)")
@@ -132,12 +133,16 @@ class SearchViewModel: ObservableObject {
         task.resume()
     }
     
-    func autoComplete(){
+    // call backend to get Yelp API autocomplete result
+    func autoComplete() -> [String] {
+        // autocomplete results
+        var autoItems: [String] = []
+        
         let url = URL(string: "https://csci571hw8-367920.uw.r.appspot.com/autocomplete?text=\(self.keyword)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
-        let task = URLSession.shared.dataTask(with: request) { [self] (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             // Check if Error took place
             if let error = error {
                 print("Error took place \(error)")
@@ -148,8 +153,15 @@ class SearchViewModel: ObservableObject {
             if let data = data {
                 do {
                     let dataString = try JSON(data: data)
-                    
-                    print(dataString)
+                    let terms = dataString["terms"]
+                    let categories = dataString["categories"]
+                    for term in terms {
+                        autoItems.append(term.1["text"].stringValue)
+                    }
+                    for category in categories {
+                        autoItems.append(category.1["title"].stringValue)
+                    }
+//                    print(autoItems)
                 }
                 catch {
                     print("error")
@@ -157,5 +169,6 @@ class SearchViewModel: ObservableObject {
             }
         }
         task.resume()
+        return autoItems
     }
 }
