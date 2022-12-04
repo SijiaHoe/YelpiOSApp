@@ -9,22 +9,22 @@ import SwiftUI
 
 struct DetailView: View {
     @State private var showSheet: Bool = false
+    @State private var status: Bool = true
     
     var body: some View {
         VStack(spacing: 50) {
-            HStack{
-                Text("Title")
-                    .font(.largeTitle)
-                    .bold()
-            }
+            Text("Title")
+                .font(.largeTitle)
+                .bold()
+            
             HStack {
-                VStack {
+                VStack(alignment: .leading) {
                     Text("**Address**")
                     Text("R 1, C 2")
                         .foregroundColor(.gray)
                 }
                 Spacer()
-                VStack {
+                VStack(alignment: .trailing) {
                     Text("**Category**")
                     Text("Row 2")
                         .foregroundColor(.gray)
@@ -33,13 +33,13 @@ struct DetailView: View {
             .padding([ .trailing, .leading])
             
             HStack {
-                VStack {
+                VStack(alignment: .leading) {
                     Text("**Phone**")
                     Text("R 1, C 2")
                         .foregroundColor(.gray)
                 }
                 Spacer()
-                VStack {
+                VStack(alignment: .trailing) {
                     Text("**Price Range**")
                     Text("Row 2")
                         .foregroundColor(.gray)
@@ -48,15 +48,24 @@ struct DetailView: View {
             .padding([ .trailing, .leading])
             
             HStack {
-                VStack {
+                // TODO: status color change
+                VStack(alignment: .leading) {
                     Text("**Status**")
-                    Text("ed")
+                    if self.status {
+                        Text("Open Now")
+                            .foregroundColor(.green)
+                    }
+                    else {
+                        Text("Closed")
+                            .foregroundColor(.red)
+                    }
                 }
-                // status color change
+                
                 Spacer()
-                VStack {
+                
+                VStack(alignment: .trailing) {
                     Text("**Visit Yelp for more**")
-                    Text("dsf")
+                    Text("Business Link")
                         .foregroundColor(.blue)
                 }
             }
@@ -78,7 +87,6 @@ struct DetailView: View {
                 .background(Color.red)
                 .controlSize(.large)
                 .cornerRadius(15)
-                
             }
             
             // Social Media
