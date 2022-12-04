@@ -10,7 +10,8 @@ import SwiftUI
 struct DetailView: View {
     @State private var showSheet: Bool = false
     @State private var status: Bool = true
-    @State private var isReserved: Bool = true
+    @State private var isReserved: Bool = false
+    @State private var isCancelled: Bool = false
     
     var body: some View {
         VStack(spacing: 50) {
@@ -92,7 +93,7 @@ struct DetailView: View {
                 // Cancel button
                 else {
                     Button(action: {
-                        
+                        self.isCancelled = true
                     }){
                         Text("Cancel Reservation")
                             .frame(width: 148 , height: 20, alignment: .center)
@@ -139,6 +140,9 @@ struct DetailView: View {
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
             }
             .padding([ .trailing, .leading])
+        }
+        .toast(isPresented: self.$isCancelled) {
+            Text("Your reservation is cancelled.")
         }
     }
 }
