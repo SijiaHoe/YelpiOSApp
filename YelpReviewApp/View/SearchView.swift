@@ -20,6 +20,7 @@ struct SearchView: View {
     var buttonColor: Color {
         return formIsValid ? .red : .gray
     }
+    
     var body: some View {
         // search setion
         Section{
@@ -27,11 +28,14 @@ struct SearchView: View {
                 Text("Keyword:")
                 // add autocomplete popOver
                 TextField("Required", text: $searchVM.keyword)
-                    .onSubmit {
-                        showsAlwaysPopover = true
-                        self.autoItems = searchVM.autoComplete()
-                        print(autoItems)
-                    }
+                    .onChange(of: searchVM.keyword, perform: { newValue in
+                        if searchVM.keyword.count == 0 {
+                            showsAlwaysPopover = false
+                        }
+                        else {
+                            showsAlwaysPopover.toggle()
+                        }
+                    })
                     .alwaysPopover(isPresented: $showsAlwaysPopover){
                         PopoverContent()
                     }

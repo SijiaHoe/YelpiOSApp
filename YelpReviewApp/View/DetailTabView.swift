@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailTabView: View {
+struct DetailTabView: View {    
     var body: some View {
         TabView {
             DetailView()

@@ -74,7 +74,7 @@ struct DetailView: View {
             
             HStack {
                 // Reserve button
-                if self.isReserved{
+                if !self.isReserved{
                     Button(action:{
                         showSheet.toggle()
                     }){
@@ -94,6 +94,7 @@ struct DetailView: View {
                 else {
                     Button(action: {
                         self.isCancelled = true
+                        self.isReserved = false
                     }){
                         Text("Cancel Reservation")
                             .frame(width: 148 , height: 20, alignment: .center)
