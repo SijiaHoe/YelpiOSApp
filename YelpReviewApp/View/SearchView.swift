@@ -20,7 +20,6 @@ struct SearchView: View {
     }
     var body: some View {
         // search setion
-        Form {
             Section{
                 HStack {
                     Text("Keyword:")
@@ -83,7 +82,6 @@ struct SearchView: View {
                     .cornerRadius(10)
                 }.frame(maxWidth: .infinity, alignment: .center)
             }
-        }
     }
 }
 

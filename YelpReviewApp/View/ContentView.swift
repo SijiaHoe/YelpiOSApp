@@ -10,19 +10,21 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView{
-            VStack{
-                SearchView()
+            Form {
+                Section{
+                    SearchView()
+                }
                 ResultsView()
             }
-                .navigationTitle("Business Search")
-                .toolbar {
-                    Button(action:{
-                    }) {
-                        Image(systemName: "calendar.badge.clock")
-                            .imageScale(.large)
-                            .foregroundColor(.accentColor)
-                    }
+            .navigationTitle("Business Search")
+            .toolbar {
+                NavigationLink(destination: ReserveListView())
+                {
+                    Image(systemName: "calendar.badge.clock")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
                 }
+            }
         } // Nav
     } // body
 }

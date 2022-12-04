@@ -22,6 +22,7 @@
 		4D3C850D293195D900477ECA /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C850C293195D900477ECA /* ReviewViewModel.swift */; };
 		4D3C850F2931962800477ECA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C850E2931962800477ECA /* DetailViewModel.swift */; };
 		4D3C8512293BFD7D00477ECA /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4D3C8511293BFD7D00477ECA /* SwiftyJSON */; };
+		4DB18A6F293C2A3000BE9DFB /* ReserveListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A6E293C2A2F00BE9DFB /* ReserveListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		4D3C850A293195CA00477ECA /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		4D3C850C293195D900477ECA /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		4D3C850E2931962800477ECA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		4DB18A6E293C2A2F00BE9DFB /* ReserveListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				4D050871292C33B00016BE37 /* ReservationsView.swift */,
 				4D3C85062931766A00477ECA /* MapView.swift */,
 				4D3C85082931767200477ECA /* CommentView.swift */,
+				4DB18A6E293C2A2F00BE9DFB /* ReserveListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				4D3C84FF29315DF400477ECA /* BusinessesViewModel.swift in Sources */,
 				4D3C85072931766A00477ECA /* MapView.swift in Sources */,
 				4D3C850B293195CA00477ECA /* SearchViewModel.swift in Sources */,
+				4DB18A6F293C2A3000BE9DFB /* ReserveListView.swift in Sources */,
 				4D3C84FB29315BF000477ECA /* SearchView.swift in Sources */,
 				4D3C85032931611500477ECA /* DetailView.swift in Sources */,
 				4D050872292C33B10016BE37 /* ReservationsView.swift in Sources */,
