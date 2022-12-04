@@ -25,8 +25,8 @@ struct ContentView: View {
                         .foregroundColor(.accentColor)
                 }
             }
-        } // Nav
-    } // body
+        }
+    }
 }
 
 

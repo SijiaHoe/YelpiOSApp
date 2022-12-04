@@ -20,7 +20,7 @@ struct ResultsView: View {
             ProgressView("Please wait...")
             
             List {
-                NavigationLink(destination: DetailView()) {
+                NavigationLink(destination: DetailTabView()) {
                     Text("1")
                     Image("Twitter")
                         .resizable()
