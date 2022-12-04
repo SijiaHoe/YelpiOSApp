@@ -17,7 +17,7 @@ struct ResultsView: View {
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
             List {
-                NavigationLink(destination: Text("Second View")) {
+                NavigationLink(destination: DetailView()) {
                     Text("1")
                     Image("Twitter")
                         .resizable()
