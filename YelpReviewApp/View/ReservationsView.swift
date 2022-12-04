@@ -45,7 +45,11 @@ struct ReservationsView: View {
                     HStack {
                         Text("Date/Time:")
                             .foregroundColor(.black)
-                        DatePicker("", selection: $date, displayedComponents: .date)
+                        // disable days before today
+                        DatePicker("", selection: $date, in: Date()... ,displayedComponents: .date)
+                        
+                        // customize time picker
+                        
                     }
                     
                     // Submit button
