@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct DetailView: View {
+    @State private var showSheet: Bool = false
+    
     var body: some View {
         VStack(spacing: 50) {
             HStack{
-                Text("**Title**")
+                Text("Title")
                     .font(.largeTitle)
+                    .bold()
             }
             HStack {
                 VStack {
@@ -59,7 +62,7 @@ struct DetailView: View {
             // Reserve button
             HStack {
                 Button(action:{
-                    
+                    showSheet.toggle()
                 }){
                     Text("Reserve Now")
                         .frame(width: 100 , height: 20, alignment: .center)
