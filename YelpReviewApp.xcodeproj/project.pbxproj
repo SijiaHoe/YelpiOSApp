@@ -23,6 +23,10 @@
 		4D3C850F2931962800477ECA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C850E2931962800477ECA /* DetailViewModel.swift */; };
 		4D3C8512293BFD7D00477ECA /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4D3C8511293BFD7D00477ECA /* SwiftyJSON */; };
 		4DB18A6F293C2A3000BE9DFB /* ReserveListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A6E293C2A2F00BE9DFB /* ReserveListView.swift */; };
+		4DB18A74293C48CC00BE9DFB /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A73293C48CC00BE9DFB /* View+Modifiers.swift */; };
+		4DB18A76293C48E400BE9DFB /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A75293C48E400BE9DFB /* ContentViewController.swift */; };
+		4DB18A78293C48FB00BE9DFB /* AlwaysPopoverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A77293C48FB00BE9DFB /* AlwaysPopoverModifier.swift */; };
+		4DB18A7A293C49A300BE9DFB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A79293C49A300BE9DFB /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,10 @@
 		4D3C850C293195D900477ECA /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		4D3C850E2931962800477ECA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4DB18A6E293C2A2F00BE9DFB /* ReserveListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveListView.swift; sourceTree = "<group>"; };
+		4DB18A73293C48CC00BE9DFB /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
+		4DB18A75293C48E400BE9DFB /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		4DB18A77293C48FB00BE9DFB /* AlwaysPopoverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysPopoverModifier.swift; sourceTree = "<group>"; };
+		4DB18A79293C49A300BE9DFB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,7 @@
 		4D3C84FC29315D8800477ECA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4DB18A70293C489600BE9DFB /* PopOver */,
 				4D05086429241A740016BE37 /* ContentView.swift */,
 				4D3C84FA29315BF000477ECA /* SearchView.swift */,
 				4D3C8504293175D100477ECA /* ResultsView.swift */,
@@ -118,6 +127,17 @@
 				4D3C850C293195D900477ECA /* ReviewViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4DB18A70293C489600BE9DFB /* PopOver */ = {
+			isa = PBXGroup;
+			children = (
+				4DB18A73293C48CC00BE9DFB /* View+Modifiers.swift */,
+				4DB18A75293C48E400BE9DFB /* ContentViewController.swift */,
+				4DB18A77293C48FB00BE9DFB /* AlwaysPopoverModifier.swift */,
+				4DB18A79293C49A300BE9DFB /* UIView+Extension.swift */,
+			);
+			path = PopOver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,14 +217,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D3C850F2931962800477ECA /* DetailViewModel.swift in Sources */,
+				4DB18A78293C48FB00BE9DFB /* AlwaysPopoverModifier.swift in Sources */,
 				4D3C85092931767200477ECA /* CommentView.swift in Sources */,
 				4D3C84FF29315DF400477ECA /* BusinessesViewModel.swift in Sources */,
 				4D3C85072931766A00477ECA /* MapView.swift in Sources */,
 				4D3C850B293195CA00477ECA /* SearchViewModel.swift in Sources */,
 				4DB18A6F293C2A3000BE9DFB /* ReserveListView.swift in Sources */,
+				4DB18A7A293C49A300BE9DFB /* UIView+Extension.swift in Sources */,
 				4D3C84FB29315BF000477ECA /* SearchView.swift in Sources */,
+				4DB18A74293C48CC00BE9DFB /* View+Modifiers.swift in Sources */,
 				4D3C85032931611500477ECA /* DetailView.swift in Sources */,
 				4D050872292C33B10016BE37 /* ReservationsView.swift in Sources */,
+				4DB18A76293C48E400BE9DFB /* ContentViewController.swift in Sources */,
 				4D3C8505293175D100477ECA /* ResultsView.swift in Sources */,
 				4D3C850D293195D900477ECA /* ReviewViewModel.swift in Sources */,
 				4D05086529241A740016BE37 /* ContentView.swift in Sources */,
