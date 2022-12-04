@@ -23,6 +23,7 @@ struct DetailTabView: View {
                     Label("Reviews", systemImage: "message.fill")
                 }
         }
+        .navigationBarTitle("", displayMode: .inline)
     }
 }
 

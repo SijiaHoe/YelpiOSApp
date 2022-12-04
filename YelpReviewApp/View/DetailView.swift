@@ -30,6 +30,7 @@ struct DetailView: View {
                         .foregroundColor(.gray)
                 }
             }
+            .padding([ .trailing, .leading])
             
             HStack {
                 VStack {
@@ -44,6 +45,7 @@ struct DetailView: View {
                         .foregroundColor(.gray)
                 }
             }
+            .padding([ .trailing, .leading])
             
             HStack {
                 VStack {
@@ -58,6 +60,7 @@ struct DetailView: View {
                         .foregroundColor(.blue)
                 }
             }
+            .padding([ .trailing, .leading])
             
             // Reserve button
             HStack {
@@ -66,11 +69,16 @@ struct DetailView: View {
                 }){
                     Text("Reserve Now")
                         .frame(width: 100 , height: 20, alignment: .center)
-                }.foregroundColor(Color.white)
-                    .buttonStyle(.bordered)
-                    .background(Color.red)
-                    .controlSize(.large)
-                    .cornerRadius(15)
+                }
+                .sheet(isPresented: $showSheet){
+                    ReservationsView()
+                }
+                .foregroundColor(Color.white)
+                .buttonStyle(.bordered)
+                .background(Color.red)
+                .controlSize(.large)
+                .cornerRadius(15)
+                
             }
             
             // Social Media
@@ -105,6 +113,7 @@ struct DetailView: View {
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
             }
+            .padding([ .trailing, .leading])
         }
     }
 }

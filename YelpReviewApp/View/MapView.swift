@@ -18,15 +18,13 @@ struct MapView: View {
             longitudeDelta: 0.03)
     )
     
-    private let places = [
+    @State var places = [
         PointOfInterest(name: "Galeria Umberto I", latitude: 40.83859036140747, longitude:  14.24945566830365)
     ]
     
     var body: some View {
-        VStack{
-            Map(coordinateRegion: $region, annotationItems: places) { place in
-                MapMarker(coordinate: place.coordinate)
-            }
+        Map(coordinateRegion: $region, annotationItems: places) { place in
+            MapMarker(coordinate: place.coordinate)
         }
     }
 }
