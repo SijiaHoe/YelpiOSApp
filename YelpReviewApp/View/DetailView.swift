@@ -71,7 +71,6 @@ struct DetailView: View {
             }
             .padding([ .trailing, .leading])
             
-            
             HStack {
                 // Reserve button
                 if self.isReserved{

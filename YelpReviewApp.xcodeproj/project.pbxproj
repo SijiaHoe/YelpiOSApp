@@ -29,6 +29,7 @@
 		4DB18A7A293C49A300BE9DFB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A79293C49A300BE9DFB /* UIView+Extension.swift */; };
 		4DB18A7C293C5FC600BE9DFB /* MapPinPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A7B293C5FC600BE9DFB /* MapPinPoint.swift */; };
 		4DB18A7E293C62CC00BE9DFB /* DetailTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A7D293C62CC00BE9DFB /* DetailTabView.swift */; };
+		4DB18A80293C6F3900BE9DFB /* SuccessReservedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A7F293C6F3900BE9DFB /* SuccessReservedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		4DB18A79293C49A300BE9DFB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		4DB18A7B293C5FC600BE9DFB /* MapPinPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinPoint.swift; sourceTree = "<group>"; };
 		4DB18A7D293C62CC00BE9DFB /* DetailTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTabView.swift; sourceTree = "<group>"; };
+		4DB18A7F293C6F3900BE9DFB /* SuccessReservedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessReservedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				4DB18A7D293C62CC00BE9DFB /* DetailTabView.swift */,
 				4D3C85022931611500477ECA /* DetailView.swift */,
 				4D050871292C33B00016BE37 /* ReservationsView.swift */,
+				4DB18A7F293C6F3900BE9DFB /* SuccessReservedView.swift */,
 				4D3C85062931766A00477ECA /* MapView.swift */,
 				4D3C85082931767200477ECA /* CommentView.swift */,
 				4DB18A6E293C2A2F00BE9DFB /* ReserveListView.swift */,
@@ -238,6 +241,7 @@
 				4D050872292C33B10016BE37 /* ReservationsView.swift in Sources */,
 				4DB18A76293C48E400BE9DFB /* ContentViewController.swift in Sources */,
 				4D3C8505293175D100477ECA /* ResultsView.swift in Sources */,
+				4DB18A80293C6F3900BE9DFB /* SuccessReservedView.swift in Sources */,
 				4D3C850D293195D900477ECA /* ReviewViewModel.swift in Sources */,
 				4D05086529241A740016BE37 /* ContentView.swift in Sources */,
 				4D05086329241A730016BE37 /* YelpReviewAppApp.swift in Sources */,
