@@ -66,8 +66,7 @@ struct DetailView: View {
                 
                 VStack(alignment: .trailing) {
                     Text("**Visit Yelp for more**")
-                    Text("Business Link")
-                        .foregroundColor(.blue)
+                    Link("Business Link", destination: URL(string: "https://www.simpleswiftguide.com")!)
                 }
             }
             .padding([ .trailing, .leading])
