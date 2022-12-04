@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailView: View {
     @State private var showSheet: Bool = false
     @State private var status: Bool = true
+    @State private var isReserved: Bool = false
     
     var body: some View {
         VStack(spacing: 50) {
@@ -71,22 +72,39 @@ struct DetailView: View {
             }
             .padding([ .trailing, .leading])
             
-            // Reserve button
+            
             HStack {
-                Button(action:{
-                    showSheet.toggle()
-                }){
-                    Text("Reserve Now")
-                        .frame(width: 100 , height: 20, alignment: .center)
+                // Reserve button
+                if self.isReserved{
+                    Button(action:{
+                        showSheet.toggle()
+                    }){
+                        Text("Reserve Now")
+                            .frame(width: 100 , height: 20, alignment: .center)
+                    }
+                    .sheet(isPresented: $showSheet){
+                        ReservationsView()
+                    }
+                    .foregroundColor(Color.white)
+                    .buttonStyle(.bordered)
+                    .background(Color.red)
+                    .controlSize(.large)
+                    .cornerRadius(15)
                 }
-                .sheet(isPresented: $showSheet){
-                    ReservationsView()
+                // Cancel button
+                else {
+                    Button(action: {
+                        
+                    }){
+                        Text("Cancel Reservation")
+                            .frame(width: 148 , height: 20, alignment: .center)
+                    }
+                    .foregroundColor(Color.white)
+                    .buttonStyle(.bordered)
+                    .background(Color.blue)
+                    .controlSize(.large)
+                    .cornerRadius(15)
                 }
-                .foregroundColor(Color.white)
-                .buttonStyle(.bordered)
-                .background(Color.red)
-                .controlSize(.large)
-                .cornerRadius(15)
             }
             
             // Social Media
@@ -101,6 +119,7 @@ struct DetailView: View {
                         .frame(width: 50.0, height: 50.0)
                 }
                 Button(action: {
+                    // delete reservation from Local Storage
                     
                 }) {
                     Image("twitter")
