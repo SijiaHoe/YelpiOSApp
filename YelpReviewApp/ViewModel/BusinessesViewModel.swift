@@ -11,7 +11,7 @@ class BusinessViewModel: ObservableObject {
     var id: String = ""
     @Published var photo: String = ""
     @Published var bName: String = ""
-    @Published var rate: String = ""
+    @Published var rating: String = ""
     @Published var distance: String = ""
     
     

@@ -13,21 +13,12 @@ class SearchViewModel: ObservableObject {
     @Published var distance: String = "10"
     @Published var category: String = "Default"
     @Published var location: String = ""
-    @Published var checked: Bool = false
     
     var latitude = ""
     var longitude = ""
     
-    func submit() {
-        if self.checked {
-            self.getCurrentLocation()
-        }
-        else {
-            self.getGeoLocation()
-        }
-    }
-    
-    func getCurrentLocation() {
+    //    async throws -> [BusinessViewModel]
+    func getCurrentLocation()  {
         let url = URL(string: "https://ipinfo.io/json?token=026d73b0fd6fa7")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -112,6 +103,8 @@ class SearchViewModel: ObservableObject {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
+        var results:[BusinessViewModel] = []
+        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             // Check if Error took place
             if let error = error {
@@ -123,7 +116,26 @@ class SearchViewModel: ObservableObject {
             if let data = data {
                 do {
                     let searchResult = try JSON(data: data)
-                    print(searchResult)
+                    var len: Int = searchResult["businesses"].count  // max:20
+                    len = len > 10 ? 10 : len
+                    let res = searchResult["businesses"]
+                    for i in 0...len-1 {
+                        let b = BusinessViewModel()
+                        b.bName = res[i]["name"].stringValue
+                        b.rating = res[i]["rating"].stringValue
+                        let distance: Float = Float(res[i]["distance"].stringValue)! / 1600
+                        b.distance = String(Int(distance))
+                        b.id = res[i]["id"].stringValue
+                        let img: String = res[i]["image_url"].stringValue
+                        // no image
+                        if img.count == 0 {
+                            b.photo = "https://media.istockphoto.com/vectors/no-image-available-sign-vector-id1138179183?k=20&m=1138179183&s=612x612&w=0&h=iJ9y-snV_RmXArY4bA-S4QSab0gxfAMXmXwn5Edko1M="
+                        }
+                        else {
+                            b.photo = img
+                        }
+                        results.append(b)
+                    }
                 }
                 catch {
                     print("error")
@@ -131,6 +143,7 @@ class SearchViewModel: ObservableObject {
             }
         }
         task.resume()
+        return
     }
     
     // call backend to get Yelp API autocomplete result
@@ -161,7 +174,6 @@ class SearchViewModel: ObservableObject {
                     for category in categories {
                         autoItems.append(category.1["title"].stringValue)
                     }
-//                    print(autoItems)
                 }
                 catch {
                     print("error")

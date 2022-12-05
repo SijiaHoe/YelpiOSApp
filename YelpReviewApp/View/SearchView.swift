@@ -11,11 +11,13 @@ struct SearchView: View {
     @ObservedObject var searchVM = SearchViewModel()
     @State var showsAlwaysPopover: Bool = false
     @State var autoItems: [String] = []
+    @State var checked: Bool = false
     
     let categories = ["Default", "Arts and Entertainment", "Health and Medical", "Hotels and Travel", "Food", "Professional Services"]
+    
     // Form validation
     var formIsValid: Bool {
-        return !searchVM.keyword.isEmpty && !searchVM.distance.isEmpty && (!searchVM.location.isEmpty || searchVM.checked)
+        return !searchVM.keyword.isEmpty && !searchVM.distance.isEmpty && (!searchVM.location.isEmpty || self.checked)
     }
     var buttonColor: Color {
         return formIsValid ? .red : .gray
@@ -59,7 +61,7 @@ struct SearchView: View {
             }
             .pickerStyle(.menu)
             
-            if !searchVM.checked { // if auto-detect, hide location
+            if !self.checked { // if auto-detect, hide location
                 HStack {
                     Text("Location:")
                         .foregroundColor(.secondary)
@@ -67,7 +69,7 @@ struct SearchView: View {
                 }
             }
             
-            Toggle(isOn: $searchVM.checked) {
+            Toggle(isOn: $checked) {
                 Text("Auto-detect my location")
                     .foregroundColor(.secondary)
             }
@@ -75,7 +77,18 @@ struct SearchView: View {
             HStack(spacing: 30) {
                 // Submit button
                 Button(action: {
-                    searchVM.submit()
+                    if self.checked {
+//                        Task.init {
+//                            do {
+//                                let list: [BusinessViewModel] = try await searchVM.getCurrentLocation()
+//                            } catch {
+//                            }
+//                        }
+                        searchVM.getCurrentLocation()
+                    }
+                    else {
+                        searchVM.getGeoLocation()
+                    }
                 }) {
                     Text("Submit")
                         .frame(width: 70 , height: 20, alignment: .center)
@@ -94,7 +107,7 @@ struct SearchView: View {
                     searchVM.distance = "10"
                     searchVM.category = "Default"
                     searchVM.location = ""
-                    searchVM.checked = false
+                    self.checked = false
                 }) {
                     Text("Clear")
                         .frame(width: 70 , height: 20, alignment: .center)
