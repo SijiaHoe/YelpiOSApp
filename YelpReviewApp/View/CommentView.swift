@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CommentView: View {
+    @ObservedObject var commentVM = CommentViewModel()
+    
     var body: some View {
         Section {
             VStack{

@@ -24,7 +24,6 @@ class DetailViewModel: ObservableObject {
     // TODO: get map pin location
     
     func getDetail() {
-        id = "vWpuRdatiCaxbdqhbqX0rw"
         let url = URL(string: "https://csci571hw8-367920.uw.r.appspot.com/detail?id=\(id)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
