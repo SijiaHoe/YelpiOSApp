@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
+    @State var detailVM = DetailViewModel()
     @State private var showSheet: Bool = false
     @State private var status: Bool = true
     @State private var isReserved: Bool = false
