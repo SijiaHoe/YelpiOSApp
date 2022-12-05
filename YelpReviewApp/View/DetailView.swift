@@ -110,18 +110,15 @@ struct DetailView: View {
             // Social Media
             HStack {
                 Text("**Share on:**")
-                Button(action: {
-                    
-                }) {
+//            https://www.facebook.com/sharer/sharer.php?u={{link}}&quote=Check {{bName.innerHTML}} on Facebook.
+                Link(destination: URL(string: "https://www.apple.com")!) {
                     Image("facebook")
                         .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: 50.0, height: 50.0)
                 }
-                Button(action: {
-                    // delete reservation from Local Storage
-                    
-                }) {
+//            https://twitter.com/intent/tweet?text=Check {{bName.innerHTML}} on Yelp.&url={{link}}
+                Link(destination: URL(string: "https://www.apple.com")!) {
                     Image("twitter")
                         .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                         .resizable()
