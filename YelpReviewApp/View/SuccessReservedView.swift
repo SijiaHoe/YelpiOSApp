@@ -37,7 +37,6 @@ struct SuccessReservedView: View {
         .background(.green)
         .foregroundColor(.white)
     }
-
 }
 
 struct SuccessReservedView_Previews: PreviewProvider {

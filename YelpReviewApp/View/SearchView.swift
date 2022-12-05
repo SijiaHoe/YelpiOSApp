@@ -26,6 +26,7 @@ struct SearchView: View {
         Section{
             HStack {
                 Text("Keyword:")
+                    .foregroundColor(.secondary)
                 // add autocomplete popOver
                 TextField("Required", text: $searchVM.keyword)
                     .onChange(of: searchVM.keyword, perform: { newValue in
@@ -43,12 +44,17 @@ struct SearchView: View {
             
             HStack {
                 Text("Distance:")
+                    .foregroundColor(.secondary)
                 TextField("", text: $searchVM.distance)
             }
             
-            Picker("Category:", selection: $searchVM.category) {
-                ForEach(categories, id: \.self) {
-                    Text($0)
+            HStack {
+                Text("Category:")
+                    .foregroundColor(.secondary)
+                Picker("", selection: $searchVM.category) {
+                    ForEach(categories, id: \.self) {
+                        Text($0)
+                    }
                 }
             }
             .pickerStyle(.menu)
@@ -56,12 +62,14 @@ struct SearchView: View {
             if !searchVM.checked { // if auto-detect, hide location
                 HStack {
                     Text("Location:")
+                        .foregroundColor(.secondary)
                     TextField("", text: $searchVM.location)
                 }
             }
             
             Toggle(isOn: $searchVM.checked) {
                 Text("Auto-detect my location")
+                    .foregroundColor(.secondary)
             }
             
             HStack(spacing: 30) {

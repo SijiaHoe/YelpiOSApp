@@ -32,6 +32,7 @@
 		4DB18A80293C6F3900BE9DFB /* SuccessReservedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A7F293C6F3900BE9DFB /* SuccessReservedView.swift */; };
 		4DB18A83293C71CD00BE9DFB /* View+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A82293C71CD00BE9DFB /* View+Toast.swift */; };
 		4DB18A85293C726300BE9DFB /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A84293C726300BE9DFB /* Toast.swift */; };
+		4DB18A89293D5FDD00BE9DFB /* ReserveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A88293D5FDD00BE9DFB /* ReserveViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		4DB18A7F293C6F3900BE9DFB /* SuccessReservedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessReservedView.swift; sourceTree = "<group>"; };
 		4DB18A82293C71CD00BE9DFB /* View+Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Toast.swift"; sourceTree = "<group>"; };
 		4DB18A84293C726300BE9DFB /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		4DB18A88293D5FDD00BE9DFB /* ReserveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				4D3C850A293195CA00477ECA /* SearchViewModel.swift */,
 				4D3C84FE29315DF400477ECA /* BusinessesViewModel.swift */,
 				4D3C850E2931962800477ECA /* DetailViewModel.swift */,
+				4DB18A88293D5FDD00BE9DFB /* ReserveViewModel.swift */,
 				4D3C850C293195D900477ECA /* ReviewViewModel.swift */,
 				4DB18A7B293C5FC600BE9DFB /* MapPinPoint.swift */,
 			);
@@ -245,6 +248,7 @@
 				4D3C85092931767200477ECA /* CommentView.swift in Sources */,
 				4D3C84FF29315DF400477ECA /* BusinessesViewModel.swift in Sources */,
 				4D3C85072931766A00477ECA /* MapView.swift in Sources */,
+				4DB18A89293D5FDD00BE9DFB /* ReserveViewModel.swift in Sources */,
 				4D3C850B293195CA00477ECA /* SearchViewModel.swift in Sources */,
 				4DB18A6F293C2A3000BE9DFB /* ReserveListView.swift in Sources */,
 				4DB18A7A293C49A300BE9DFB /* UIView+Extension.swift in Sources */,
