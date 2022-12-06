@@ -8,40 +8,50 @@
 import SwiftUI
 
 struct ResultsView: View {
-    @ObservedObject var BusinessVM = BusinessViewModel()
+    @Binding var hasResults: Bool
+    @Binding var submitted: Bool
+    @Binding var results: [BusinessViewModel]
     
     var body: some View {
-        Section{
+        Section {
             Text("Results")
                 .font(.title)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            ProgressView("Please wait...")
-            
-            List {
-                NavigationLink(destination: DetailTabView()) {
-                    Text("1")
-                    Image("Twitter")
-                        .resizable()
-                        .frame(width: 50.0, height: 50.0)
-                    Text("name")
-                        .foregroundColor(.gray)
-                    Text("Rating")
-                    Text("6")
-                }
-                
+            if submitted && !hasResults{
+                ProgressView("Please wait...")
             }
             
-            Text("No result available")
-                .foregroundColor(.red)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            if submitted && hasResults{
+                List {
+                    ForEach(results.indices) { i in
+                        NavigationLink(destination: DetailTabView(id: results[i].id)) {
+                            Text(String(i+1))
+                                .frame(width: 50)
+                            Spacer()
+                            
+                            AsyncImage(url: URL(string: results[i].photo)){ image in
+                                image.resizable()
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .frame(width: 50, height: 50)
+                            
+                            Text(results[i].bName)
+                                .foregroundColor(.gray)
+                                .frame(width: 120, alignment: .leading)
+                            
+                            Text(results[i].rating)
+                                .frame(width: 70)
+                            Text(results[i].distance)
+                        }
+                    }
+                }
+            }
+            //            Text("No result available")
+            //                .foregroundColor(.red)
+            //                .frame(maxWidth: .infinity, alignment: .leading)
         }
-    }
-}
-
-struct ResultsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResultsView()
     }
 }

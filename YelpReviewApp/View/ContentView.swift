@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var submitted: Bool = false
+    @State var hasResults: Bool = false
+    @State var results: [BusinessViewModel] = []
+    
     var body: some View {
         NavigationView{
             Form {
                 Section{
-                    SearchView()
+                    SearchView(results: self.$results, hasYelpResult: self.$hasResults, submitted: self.$submitted)
                 }
-                ResultsView()
+                ResultsView(hasResults: self.$hasResults, submitted: self.$submitted, results: self.$results)
             }
             .navigationTitle("Business Search")
             .toolbar {

@@ -9,11 +9,21 @@ import SwiftUI
 
 struct ReservationsView: View {
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var reserveVM = ReserveViewModel()
     
-    @State var date: Date = Date()
     @State var isInvalidEmail: Bool = false
     @State var isSuccess: Bool = false
+    
+    @State var date: Date = Date()
+    @State var email: String = ""
+    @State var hour: String = "10"
+    @State var minute: String = "00"
+    
+    struct Reservation: Codable, Equatable {
+        var email: String = ""
+        var date: String = ""
+        var time: String = ""
+        var bName: String = ""
+    }
     
     let hours = ["10", "11", "12", "13", "14", "15", "16", "17"]
     let minutes = ["00", "15", "30", "45"]
@@ -41,7 +51,7 @@ struct ReservationsView: View {
                     HStack {
                         Text("Email:")
                             .foregroundColor(.secondary)
-                        TextField("Required", text: $reserveVM.email)
+                        TextField("Required", text: self.$email)
                             .foregroundColor(.black)
                     }
                     .padding(.vertical)
@@ -51,20 +61,20 @@ struct ReservationsView: View {
                             .foregroundColor(.secondary)
                         
                         // disable days before today
-                        DatePicker("", selection: $date, in: Date()..., displayedComponents: .date)
+                        DatePicker("", selection: self.$date, in: Date()..., displayedComponents: .date)
                         
                         HStack {
                             // hour picker
                             Menu {
                                 ForEach(hours, id: \.self) { hour in
                                     Button(action: {
-                                        reserveVM.hour = hour
+                                        self.hour = hour
                                     }){
                                         Text(hour)
                                     }
                                 }
                             }label: {
-                                Text(reserveVM.hour)
+                                Text(self.hour)
                                     .foregroundColor(.primary)
                             }
                             
@@ -75,13 +85,13 @@ struct ReservationsView: View {
                             Menu {
                                 ForEach(minutes, id: \.self) { minute in
                                     Button(action: {
-                                        reserveVM.minute = minute
+                                        self.minute = minute
                                     }){
                                         Text(minute)
                                     }
                                 }
                             }label: {
-                                Text(reserveVM.minute)
+                                Text(self.minute)
                                     .foregroundColor(.primary)
                             }
                         }
@@ -95,13 +105,23 @@ struct ReservationsView: View {
                     HStack {
                         Button(action: {
                             // validate email
-                            if(reserveVM.email.range(of:"^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$", options: .regularExpression) != nil) {
-                                isInvalidEmail = false
+                            if(self.email.range(of:"^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$", options: .regularExpression) != nil) {
+                                self.isInvalidEmail = false
                                 // successfully reserved
                                 self.isSuccess = true
+                                
+                                // add reservation to local storage
+                                var r = Reservation()
+                                r.email = self.email
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "YYYY-MM-dd"
+                                // Convert Date to String
+                                r.date = dateFormatter.string(from: self.date)
+                                r.time = self.hour + ":" + self.minute
+                                
                             }
                             else {
-                                isInvalidEmail = true
+                                self.isInvalidEmail = true
                             }
                         }) {
                             Text("Submit")
@@ -127,11 +147,5 @@ struct ReservationsView: View {
         else{
             SuccessReservedView()
         }
-    }
-}
-//
-struct ReservationsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReservationsView()
     }
 }
