@@ -10,6 +10,7 @@ import SwiftUI
 struct SuccessReservedView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var isReserved: Bool
+    @Binding var name: String
     
     var body: some View {
         VStack {

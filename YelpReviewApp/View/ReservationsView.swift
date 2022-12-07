@@ -154,7 +154,7 @@ struct ReservationsView: View {
             }
         }
         else{
-            SuccessReservedView(isReserved: self.$isReserved)
+            SuccessReservedView(isReserved: self.$isReserved, name: self.$name)
         }
     }
 }
