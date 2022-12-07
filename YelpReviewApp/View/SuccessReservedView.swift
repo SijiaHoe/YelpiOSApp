@@ -19,7 +19,7 @@ struct SuccessReservedView: View {
                 .bold()
                 .padding(.bottom)
             Text("You have successfully made an reservation at")
-            Text("sdsds")
+            Text(self.name)
             Spacer()
             // Done button
             Button(action: {
