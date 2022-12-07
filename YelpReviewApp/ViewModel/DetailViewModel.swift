@@ -17,6 +17,4 @@ class DetailViewModel: ObservableObject {
     @Published var status: String = ""
     @Published var link: String = "https://google.com"
     @Published var photos: [String] = []
-    var id: String = ""
-    
 }

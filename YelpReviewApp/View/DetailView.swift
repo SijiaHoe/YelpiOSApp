@@ -17,10 +17,12 @@ struct DetailView: View {
     @State private var isReserved: Bool = false
     @State private var isCancelled: Bool = false
     @Binding var hasDetail: Bool
-
+    
     // mapView data
     @Binding var region: MKCoordinateRegion
     @Binding var places: [PointOfInterest]
+    
+    @AppStorage("res") var reservationList: Data?
     
     func getDetail() {
         let url = URL(string: ("https://csci571hw8-367920.uw.r.appspot.com/detail?id=\(id)").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
@@ -88,6 +90,16 @@ struct DetailView: View {
                     self.places.append(
                         PointOfInterest(name: self.detailVM.bName, latitude: lat, longitude:  lng)
                     )
+                    
+                    // if reserved or not
+                    var data = try JSONDecoder().decode(Dictionary<String, Reservation>.self, from: reservationList!)
+                    if data[self.id] != nil {
+                        self.isReserved = true
+                    }
+                    else {
+                        self.isReserved = false
+                    }
+                    
                     self.hasDetail = true
                 }
                 catch {
@@ -176,7 +188,7 @@ struct DetailView: View {
                                     .frame(width: 100 , height: 20, alignment: .center)
                             }
                             .sheet(isPresented: $showSheet){
-                                ReservationsView()
+                                ReservationsView(id: self.$id, name: self.$detailVM.bName, isReserved: self.$isReserved)
                             }
                             .foregroundColor(Color.white)
                             .buttonStyle(.bordered)
@@ -187,8 +199,17 @@ struct DetailView: View {
                         // Cancel button
                         else {
                             Button(action: {
-                                self.isCancelled = true
-                                self.isReserved = false
+                                do {
+                                    // delete from Local Storage
+                                    var data = try JSONDecoder().decode(Dictionary<String, Reservation>.self, from: reservationList!)
+                                    data.removeValue(forKey: self.id)
+                                    reservationList = try? JSONEncoder().encode(data)
+                                    self.isCancelled = true
+                                    self.isReserved = false
+                                }
+                                catch {
+                                    print("error")
+                                }
                             }){
                                 Text("Cancel Reservation")
                                     .frame(width: 148 , height: 20, alignment: .center)
@@ -222,7 +243,6 @@ struct DetailView: View {
                                 .frame(width: 50.0, height: 50.0)
                         }
                     }
-                    .padding(.bottom)
                     
                     // Images
                     HStack{
@@ -233,16 +253,15 @@ struct DetailView: View {
                                 } placeholder: {
                                     ProgressView()
                                 }
-                                .frame(width: 320, height: 230)
                             }
                         }
                         .tabViewStyle(.page)
                         .indexViewStyle(.page(backgroundDisplayMode: .always))
                         .padding([ .trailing, .leading])
                     }
-                    .toast(isPresented: self.$isCancelled) {
-                        Text("Your reservation is cancelled.")
-                    }
+                }
+                .toast(isPresented: self.$isCancelled) {
+                    Text("Your reservation is cancelled.")
                 }
             }
         }

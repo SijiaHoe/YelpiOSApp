@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SuccessReservedView: View {
     @Environment(\.dismiss) var dismiss
+    @Binding var isReserved: Bool
     
     var body: some View {
         VStack {
@@ -21,6 +22,7 @@ struct SuccessReservedView: View {
             Spacer()
             // Done button
             Button(action: {
+                self.isReserved = true
                 dismiss()
             }){
                 Text("Done")
@@ -36,11 +38,5 @@ struct SuccessReservedView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.green)
         .foregroundColor(.white)
-    }
-}
-
-struct SuccessReservedView_Previews: PreviewProvider {
-    static var previews: some View {
-        SuccessReservedView()
     }
 }

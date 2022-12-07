@@ -13,17 +13,16 @@ struct ReservationsView: View {
     @State var isInvalidEmail: Bool = false
     @State var isSuccess: Bool = false
     
+    @Binding var id: String
+    @Binding var name: String
+    @Binding var isReserved: Bool
+
     @State var date: Date = Date()
     @State var email: String = ""
     @State var hour: String = "10"
     @State var minute: String = "00"
     
-    struct Reservation: Codable, Equatable {
-        var email: String = ""
-        var date: String = ""
-        var time: String = ""
-        var bName: String = ""
-    }
+    @AppStorage("res") var reservationList: Data?
     
     let hours = ["10", "11", "12", "13", "14", "15", "16", "17"]
     let minutes = ["00", "15", "30", "45"]
@@ -40,7 +39,7 @@ struct ReservationsView: View {
                 }
                 
                 Section {
-                    Text("Title")
+                    Text(self.name)
                         .foregroundColor(.black)
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)
@@ -107,8 +106,6 @@ struct ReservationsView: View {
                             // validate email
                             if(self.email.range(of:"^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$", options: .regularExpression) != nil) {
                                 self.isInvalidEmail = false
-                                // successfully reserved
-                                self.isSuccess = true
                                 
                                 // add reservation to local storage
                                 var r = Reservation()
@@ -118,7 +115,25 @@ struct ReservationsView: View {
                                 // Convert Date to String
                                 r.date = dateFormatter.string(from: self.date)
                                 r.time = self.hour + ":" + self.minute
+                                r.bName = self.name
                                 
+                                do{
+                                    if (reservationList == nil) {
+                                        let data = try? JSONEncoder().encode([self.id: r])
+                                        reservationList = data
+                                    }
+                                    else {
+                                        var data = try JSONDecoder().decode(Dictionary<String, Reservation>.self, from: reservationList!)
+                                        data[self.id] = r
+                                        print(data)
+                                        reservationList = try? JSONEncoder().encode(data)
+                                    }
+                                } catch {
+                                    print("error")
+                                }
+
+                                // successfully reserved view pop up
+                                self.isSuccess = true
                             }
                             else {
                                 self.isInvalidEmail = true
@@ -126,9 +141,6 @@ struct ReservationsView: View {
                         }) {
                             Text("Submit")
                                 .frame(width: 70 , height: 20, alignment: .center)
-                        }
-                        .sheet(isPresented: self.$isSuccess){
-                            SuccessReservedView()
                         }
                         .foregroundColor(Color.white)
                         .buttonStyle(.bordered)
@@ -145,7 +157,7 @@ struct ReservationsView: View {
             }
         }
         else{
-            SuccessReservedView()
+            SuccessReservedView(isReserved: self.$isReserved)
         }
     }
 }

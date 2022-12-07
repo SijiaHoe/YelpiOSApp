@@ -21,6 +21,7 @@ struct ResultsView: View {
             
             if submitted && !hasResults{
                 ProgressView("Please wait...")
+                    .frame(maxWidth: .infinity, alignment: .center)
             }
             
             if submitted && hasResults{
@@ -28,23 +29,25 @@ struct ResultsView: View {
                     ForEach(results.indices) { i in
                         NavigationLink(destination: DetailTabView(id: results[i].id)) {
                             Text(String(i+1))
-                                .frame(width: 50)
-                            Spacer()
+                                .frame(width: 40)
                             
                             AsyncImage(url: URL(string: results[i].photo)){ image in
                                 image.resizable()
                             } placeholder: {
                                 ProgressView()
                             }
-                            .frame(width: 50, height: 50)
+                            .frame(width: 60, height: 60)
+                            .cornerRadius(10)
                             
                             Text(results[i].bName)
                                 .foregroundColor(.gray)
-                                .frame(width: 120, alignment: .leading)
+                                .frame(width: 80, alignment: .leading)
                             
                             Text(results[i].rating)
-                                .frame(width: 70)
+                                .bold()
+                                .frame(width: 40)
                             Text(results[i].distance)
+                                .bold()
                         }
                     }
                 }

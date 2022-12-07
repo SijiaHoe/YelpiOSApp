@@ -32,6 +32,7 @@
 		4DB18A83293C71CD00BE9DFB /* View+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A82293C71CD00BE9DFB /* View+Toast.swift */; };
 		4DB18A85293C726300BE9DFB /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18A84293C726300BE9DFB /* Toast.swift */; };
 		4DB91C72293EDA5900E50AAA /* PopOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB91C71293EDA5900E50AAA /* PopOverView.swift */; };
+		4DB91C742940129200E50AAA /* ReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB91C732940129200E50AAA /* ReservationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		4DB18A82293C71CD00BE9DFB /* View+Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Toast.swift"; sourceTree = "<group>"; };
 		4DB18A84293C726300BE9DFB /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		4DB91C71293EDA5900E50AAA /* PopOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverView.swift; sourceTree = "<group>"; };
+		4DB91C732940129200E50AAA /* ReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				4D3C850E2931962800477ECA /* DetailViewModel.swift */,
 				4D3C850C293195D900477ECA /* CommentViewModel.swift */,
 				4DB18A7B293C5FC600BE9DFB /* MapPinPoint.swift */,
+				4DB91C732940129200E50AAA /* ReservationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				4D3C85072931766A00477ECA /* MapView.swift in Sources */,
 				4DB18A6F293C2A3000BE9DFB /* ReserveListView.swift in Sources */,
 				4DB18A7A293C49A300BE9DFB /* UIView+Extension.swift in Sources */,
+				4DB91C742940129200E50AAA /* ReservationViewModel.swift in Sources */,
 				4D3C84FB29315BF000477ECA /* SearchView.swift in Sources */,
 				4DB18A74293C48CC00BE9DFB /* View+Modifiers.swift in Sources */,
 				4DB91C72293EDA5900E50AAA /* PopOverView.swift in Sources */,
