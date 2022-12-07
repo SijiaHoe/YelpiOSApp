@@ -139,22 +139,27 @@ struct SearchView: View {
                     var len: Int = searchResult["businesses"].count  // max:20
                     len = len > 10 ? 10 : len
                     let res = searchResult["businesses"]
-                    for i in 0...len-1 {
-                        let b = BusinessViewModel()
-                        b.bName = res[i]["name"].stringValue
-                        b.rating = res[i]["rating"].stringValue
-                        let distance: Float = Float(res[i]["distance"].stringValue)! / 1600
-                        b.distance = String(Int(distance))
-                        b.id = res[i]["id"].stringValue
-                        let img: String = res[i]["image_url"].stringValue
-                        // no image
-                        if img.count == 0 {
-                            b.photo = "https://media.istockphoto.com/vectors/no-image-available-sign-vector-id1138179183?k=20&m=1138179183&s=612x612&w=0&h=iJ9y-snV_RmXArY4bA-S4QSab0gxfAMXmXwn5Edko1M="
+                    if res.count == 0 {
+                        self.results = []
+                    }
+                    else {
+                        for i in 0...len-1 {
+                            let b = BusinessViewModel()
+                            b.bName = res[i]["name"].stringValue
+                            b.rating = res[i]["rating"].stringValue
+                            let distance: Float = Float(res[i]["distance"].stringValue)! / 1600
+                            b.distance = String(Int(distance))
+                            b.id = res[i]["id"].stringValue
+                            let img: String = res[i]["image_url"].stringValue
+                            // no image
+                            if img.count == 0 {
+                                b.photo = "https://media.istockphoto.com/vectors/no-image-available-sign-vector-id1138179183?k=20&m=1138179183&s=612x612&w=0&h=iJ9y-snV_RmXArY4bA-S4QSab0gxfAMXmXwn5Edko1M="
+                            }
+                            else {
+                                b.photo = img
+                            }
+                            self.results.append(b)
                         }
-                        else {
-                            b.photo = img
-                        }
-                        self.results.append(b)
                     }
                     self.hasYelpResult = true
                 }
@@ -193,10 +198,16 @@ struct SearchView: View {
                     for category in categories {
                         self.autoItems.append(category.1["title"].stringValue)
                     }
-                    self.hasAutoResult = true
+                    if autoItems.count == 0 {
+                        self.showsAlwaysPopover = false
+                    }
+                    else {
+                        self.hasAutoResult = true
+                        self.showsAlwaysPopover = true
+                    }
                 }
                 catch {
-                    print("error")
+                    print("AutoComplete error")
                 }
             }
         }
@@ -217,7 +228,6 @@ struct SearchView: View {
                         }
                         else {
                             self.hasAutoResult = false
-                            showsAlwaysPopover.toggle()
                             self.autoComplete()
                         }
                     })
@@ -247,7 +257,7 @@ struct SearchView: View {
                 HStack {
                     Text("Location:")
                         .foregroundColor(.secondary)
-                    TextField("", text: self.$location)
+                    TextField("Required", text: self.$location)
                 }
             }
             
@@ -298,7 +308,9 @@ struct SearchView: View {
                 .background(Color.blue)
                 .controlSize(.large)
                 .cornerRadius(10)
-            }.frame(maxWidth: .infinity, alignment: .center)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding([.top, .bottom])
         }
     }
 }

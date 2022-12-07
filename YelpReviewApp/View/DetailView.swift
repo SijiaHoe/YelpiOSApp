@@ -253,6 +253,7 @@ struct DetailView: View {
                                 } placeholder: {
                                     ProgressView()
                                 }
+                                .frame(width: 280)
                             }
                         }
                         .tabViewStyle(.page)

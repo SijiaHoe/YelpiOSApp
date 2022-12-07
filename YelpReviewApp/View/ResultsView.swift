@@ -25,36 +25,41 @@ struct ResultsView: View {
             }
             
             if submitted && hasResults{
-                List {
-                    ForEach(results.indices) { i in
-                        NavigationLink(destination: DetailTabView(id: results[i].id)) {
-                            Text(String(i+1))
-                                .frame(width: 40)
-                            
-                            AsyncImage(url: URL(string: results[i].photo)){ image in
-                                image.resizable()
-                            } placeholder: {
-                                ProgressView()
+                if results.count == 0 {
+                    Text("No result available")
+                        .foregroundColor(.red)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                else{
+                    List {
+                        ForEach(results.indices) { i in
+                            NavigationLink(destination: DetailTabView(id: results[i].id)) {
+                                Text(String(i+1))
+                                    .frame(width: 40)
+                                
+                                AsyncImage(url: URL(string: results[i].photo)){ image in
+                                    image.resizable()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(width: 60, height: 60)
+                                .cornerRadius(10)
+                                
+                                Text(results[i].bName)
+                                    .foregroundColor(.gray)
+                                    .frame(width: 80, alignment: .center)
+                                    .padding(.leading)
+                                
+                                Text(results[i].rating)
+                                    .bold()
+                                    .frame(width: 40)
+                                Text(results[i].distance)
+                                    .bold()
                             }
-                            .frame(width: 60, height: 60)
-                            .cornerRadius(10)
-                            
-                            Text(results[i].bName)
-                                .foregroundColor(.gray)
-                                .frame(width: 80, alignment: .leading)
-                            
-                            Text(results[i].rating)
-                                .bold()
-                                .frame(width: 40)
-                            Text(results[i].distance)
-                                .bold()
                         }
                     }
                 }
             }
-            //            Text("No result available")
-            //                .foregroundColor(.red)
-            //                .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 }

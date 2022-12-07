@@ -16,7 +16,7 @@ struct ReservationsView: View {
     @Binding var id: String
     @Binding var name: String
     @Binding var isReserved: Bool
-
+    
     @State var date: Date = Date()
     @State var email: String = ""
     @State var hour: String = "10"
@@ -58,45 +58,42 @@ struct ReservationsView: View {
                     HStack {
                         Text("Date/Time:")
                             .foregroundColor(.secondary)
+                            .frame(width: 45)
                         
                         // disable days before today
                         DatePicker("", selection: self.$date, in: Date()..., displayedComponents: .date)
                         
-                        HStack {
-                            // hour picker
-                            Menu {
-                                ForEach(hours, id: \.self) { hour in
-                                    Button(action: {
-                                        self.hour = hour
-                                    }){
-                                        Text(hour)
-                                    }
+                        // hour picker
+                        Menu {
+                            ForEach(hours, id: \.self) { hour in
+                                Button(action: {
+                                    self.hour = hour
+                                }){
+                                    Text(hour)
                                 }
-                            }label: {
-                                Text(self.hour)
-                                    .foregroundColor(.primary)
                             }
-                            
-                            Text(":")
-                                .foregroundColor(.secondary)
-                            
-                            // minute picker
-                            Menu {
-                                ForEach(minutes, id: \.self) { minute in
-                                    Button(action: {
-                                        self.minute = minute
-                                    }){
-                                        Text(minute)
-                                    }
-                                }
-                            }label: {
-                                Text(self.minute)
-                                    .foregroundColor(.primary)
-                            }
+                        }label: {
+                            Text(self.hour)
+                                .foregroundColor(.primary)
                         }
-                        .frame(width:75, height: 35)
-                        .background(Color.secondary.colorInvert())
-                        .cornerRadius(10)
+                        
+                        Text(":")
+                            .foregroundColor(.secondary)
+                        
+                        // minute picker
+                        Menu {
+                            ForEach(minutes, id: \.self) { minute in
+                                Button(action: {
+                                    self.minute = minute
+                                }){
+                                    Text(minute)
+                                }
+                            }
+                        }label: {
+                            Text(self.minute)
+                                .foregroundColor(.primary)
+                                .frame(alignment: .leading)
+                        }
                     }
                     .padding(.vertical)
                     
@@ -131,7 +128,7 @@ struct ReservationsView: View {
                                 } catch {
                                     print("error")
                                 }
-
+                                
                                 // successfully reserved view pop up
                                 self.isSuccess = true
                             }
