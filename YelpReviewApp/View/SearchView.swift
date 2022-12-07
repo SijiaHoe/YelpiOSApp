@@ -32,7 +32,7 @@ struct SearchView: View {
     
     // Form validation
     var formIsValid: Bool {
-        return !self.keyword.isEmpty && !self.distance.isEmpty && (!self.location.isEmpty || self.checked)
+        return !self.keyword.isEmpty && !self.distance.isEmpty && (!self.location.isEmpty || self.checked) && self.distance != "0"
     }
     var buttonColor: Color {
         return formIsValid ? .red : .gray
